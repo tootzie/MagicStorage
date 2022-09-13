@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Subject</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="stacked">Subject Name</ion-label>
+      <ion-input required type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-input required type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Lecturer</ion-label>
+      <ion-input required type="text" [(ngModel)]="lecture"></ion-input>
+    </ion-item>
+  </ion-list>
+  
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin" (click)="edit()">Edit Subject</ion-button>
+  </div>
+</ion-content>

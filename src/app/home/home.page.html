@@ -1,0 +1,31 @@
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+  <div id="container">
+    <ion-slides>
+      <ion-slide>
+        <div class="slide">
+          <img src="assets/img/slide1.png"/>
+          <h2>Welcome</h2>
+          <p>The <b>Magic Storage App</b> is made especially for students that mostly taking notes daily on day to day basis </p>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slide ion-margin">
+          <img src="assets/img/slide2.png"/>
+          <h2>Simple and Quick</h2>
+          <p><b>Magic Storage App</b> will make it easier to store all of your school notes. Simply add your subjects and write your notes in it</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slide ion-margin">
+          <img src="assets/img/slide3.png"/>
+          <h2> See The Magic!</h2>
+          <ion-button fill="clear" (click)="login()">Login<ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button><br>
+          <ion-label color="warning">Dont have an account? Sign up now!</ion-label> <br>
+          <ion-button fill="clear" (click)="signup()">Signup<ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="subject"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notes</ion-title>
+    <ion-buttons slot="end" (click)="addNote()" class="ion-padding">
+      <ion-icon slot="icon-only" name="add" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor = "let note of (notesCloud | async)">
+      <ion-item (click)="editNote(note.id)" *ngIf = "note.delete == 0">
+        <ion-label>
+          <h2>{{note.title}}</h2>
+          <p>{{note.notes}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end" (click)="deleteNote(note.id)">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="bin()">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-back" ios="trash-bin-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

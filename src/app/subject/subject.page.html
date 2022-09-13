@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons style="margin-left: 25px;" slot="start" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-buttons>
+    <ion-title>My Subjects</ion-title>
+    <ion-buttons slot="end" (click)="addSubject()" class="ion-padding">
+      <ion-icon slot="icon-only" name="add" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor = "let subject of (subjectCloud | async)">
+    <ion-img src="{{isiImg[subject.img]}}" (click)="notes(subject.id)"></ion-img>
+    <ion-card-header (click)="notes(subject.id)">
+      <ion-card-subtitle>{{subject.lecturer}}</ion-card-subtitle>
+      <ion-card-title>{{subject.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     {{subject.description}}
+     <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button size="small" color="medium">
+        <ion-icon  name="chevron-back"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button color="warning" (click)="editSubject(subject.id)">
+          <ion-icon name="color-wand"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="danger" (click)="deleteSubject(subject.id)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+    </ion-card-content>
+    
+  </ion-card>
+  
+</ion-content>

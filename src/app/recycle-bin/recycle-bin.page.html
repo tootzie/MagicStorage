@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="subject"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recycle Bin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor = "let note of (notesCloud | async)">
+      <ion-item (click)="editNote(note.id)" *ngIf = "note.delete == 1">
+        <ion-label>
+          <h2>{{note.title}}</h2>
+          <p>{{note.notes}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end" (click)="Restore(note.id)">
+        <ion-item-option color="warning">
+          <p>Restore</p>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start" (click)="Delete(note.id)">
+        <ion-item-option color="danger">
+          <p>Delete</p>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

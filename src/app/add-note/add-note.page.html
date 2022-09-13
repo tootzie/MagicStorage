@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="notes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add A Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input required type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Notes</ion-label>
+      <ion-textarea autosize [(ngModel)]="notess"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin" (click)="add()">Add Note</ion-button>
+  </div>
+</ion-content>
